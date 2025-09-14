@@ -1,24 +1,61 @@
 {
 	"name": "@emperorrag/form-radio-group-input",
+	"description": "A radio group input component for React forms, built with Radix UI and TypeScript.",
 	"private": false,
 	"version": "0.0.0",
+	"author": "",
+	"license": "MIT",
 	"type": "module",
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EmperorRAG/form-radio-group-input.git"
+	},
+	"homepage": "https://github.com/EmperorRAG/form-radio-group-input#readme",
+	"bugs": {
+		"url": "https://github.com/EmperorRAG/form-radio-group-input/issues"
+	},
+	"keywords": [
+		"react",
+		"typescript",
+		"radix-ui",
+		"form",
+		"radio",
+		"input",
+		"component",
+		"ui",
+		"library"
+	],
+	"main": "dist/form-radio-group-input.umd.cjs",
+	"module": "dist/form-radio-group-input.js",
+	"types": "dist/form-radio-group-input.d.ts",
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"exports": {
+		".": {
+			"import": "./dist/form-radio-group-input.js",
+			"require": "./dist/form-radio-group-input.umd.cjs"
+		}
+	},
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"build": "tsc -b && vite build && npm run build:types",
+		"build:types": "dts-bundle-generator --project tsconfig.types.json -o dist/form-radio-group-input.d.ts src/index.tsx",
+		"build:storybook": "storybook build",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
-		"build:storybook": "storybook build",
+		"test": "vitest --coverage",
 		"test:storybook": "vitest --project=storybook --coverage",
 		"test:unit": "vitest --project=unit --coverage"
 	},
 	"dependencies": {
 		"@radix-ui/themes": "^3.2.1",
-		"react": "^19.1.1",
+		"react": ">=18",
 		"react-dom": "^19.1.1"
 	},
 	"devDependencies": {
@@ -34,6 +71,7 @@
 		"@vitejs/plugin-react": "^5.0.0",
 		"@vitest/browser": "^3.2.4",
 		"@vitest/coverage-v8": "^3.2.4",
+		"dts-bundle-generator": "^9.5.1",
 		"eslint": "^9.33.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-react-dom": "^1.53.1",
@@ -49,5 +87,8 @@
 		"typescript-eslint": "^8.39.1",
 		"vite": "^7.1.2",
 		"vitest": "^3.2.4"
+	},
+	"peerDependencies": {
+		"react": ">=18"
 	}
 }

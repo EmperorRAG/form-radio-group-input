@@ -11,6 +11,24 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
 	plugins: [react()],
+	build: {
+		lib: {
+			entry: 'src/index.tsx', // or your component entry point
+			name: 'FormRadioGroupInput',
+			fileName: 'form-radio-group-input',
+			formats: ['es', 'umd'],
+		},
+		rollupOptions: {
+			// externalize deps that shouldn't be bundled
+			external: ['react', 'react-dom'],
+			output: {
+				globals: {
+					react: 'React',
+					'react-dom': 'ReactDOM',
+				},
+			},
+		},
+	},
 	test: {
 		projects: [
 			{
