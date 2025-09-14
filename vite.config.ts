@@ -20,11 +20,12 @@ export default defineConfig({
 		},
 		rollupOptions: {
 			// externalize deps that shouldn't be bundled
-			external: ['react', 'react-dom'],
+			external: ['react', 'react-dom', '@emperorrag/utilities'],
 			output: {
 				globals: {
 					react: 'React',
 					'react-dom': 'ReactDOM',
+					'@emperorrag/utilities': 'EmperorRAGUtilities',
 				},
 			},
 		},

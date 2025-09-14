@@ -2,7 +2,7 @@
 	"name": "@emperorrag/form-radio-group-input",
 	"description": "A radio group input component for React forms, built with Radix UI and TypeScript.",
 	"private": false,
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"author": "",
 	"license": "MIT",
 	"type": "module",
@@ -54,6 +54,7 @@
 		"test:unit": "vitest --project=unit --coverage"
 	},
 	"dependencies": {
+		"@emperorrag/utilities": "^0.0.0",
 		"@radix-ui/themes": "^3.2.1",
 		"react": ">=18",
 		"react-dom": "^19.1.1"
@@ -89,6 +90,7 @@
 		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
-		"react": ">=18"
+		"react": ">=18",
+		"@emperorrag/utilities": "^0.0.0"
 	}
 }
